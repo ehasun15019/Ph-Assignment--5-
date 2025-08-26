@@ -1,4 +1,3 @@
-/* card system created start */
 const cards = [
   {
     id: 1,
@@ -67,7 +66,7 @@ const cards = [
   {
     id: 9,
     image: "./assets/emergency.png",
-    title: "Bangladesh Railway Helpline ",
+    title: "Bangladesh Railway Helpline",
     subtitle: "Bangladesh Railway",
     call_number: "163",
     definition: "Travel",
@@ -76,12 +75,23 @@ const cards = [
 
 const cardsContainer = document.getElementById("cards-container");
 
+/* Load heart status per card from localStorage */
+let cardHearts = JSON.parse(localStorage.getItem("cardHearts")) || {};
+let heartCount = parseInt(localStorage.getItem("heartCount")) || 0;
+
+const heartCountElement = document.getElementById("heart_count");
+heartCountElement.textContent = heartCount;
+
 cards.forEach((card) => {
+  const isLiked = cardHearts[card.id] || false; // if this card is liked
+
   const cardHTML = `
-    <div class="card bg-base-100 shadow-sm p-5">
+    <div class="card bg-base-100 shadow-sm p-5" data-id="${card.id}">
       <div class="flex justify-between items-center">
         <img src="${card.image}" alt="${card.title}" class="w-8 object-cover" />
-        <i class="fa-regular fa-heart cursor-pointer text-gray-400"></i>
+        <i class="fa-regular fa-heart cursor-pointer ${
+          isLiked ? "text-red-500" : "text-gray-400"
+        } card-heart"></i>
       </div>
 
       <div class="cards-body">
@@ -92,7 +102,9 @@ cards.forEach((card) => {
           <p class="text-[1.3rem] font-semibold">${card.call_number}</p>
         </div>
 
-        <div class="badge badge-ghost bg-gray-200 p-4 rounded-full mt-1">${card.definition}</div>
+        <div class="badge badge-ghost bg-gray-200 p-4 rounded-full mt-1">${
+          card.definition
+        }</div>
 
         <div class="copy-section mt-4 flex justify-center gap-3 items-center">
           <button class="text-gray-400 px-10 py-[9px] border border-gray-400 cursor-pointer rounded-sm"><i class="fa-regular fa-copy"></i> copy</button>
@@ -104,4 +116,29 @@ cards.forEach((card) => {
   cardsContainer.innerHTML += cardHTML;
 });
 
-/* card system created end */
+/* heart click system */
+document.querySelectorAll(".card-heart").forEach((heart) => {
+  heart.addEventListener("click", () => {
+    const card = heart.closest(".card");
+    const cardId = card.dataset.id;
+
+    if (cardHearts[cardId]) {
+      // Already liked → unlike
+      cardHearts[cardId] = false;
+      heart.classList.remove("text-red-500");
+      heart.classList.add("text-gray-400");
+      heartCount--;
+    } else {
+      // Like
+      cardHearts[cardId] = true;
+      heart.classList.remove("text-gray-400");
+      heart.classList.add("text-red-500");
+      heartCount++;
+    }
+
+    // Update localStorage & navbar
+    localStorage.setItem("cardHearts", JSON.stringify(cardHearts));
+    localStorage.setItem("heartCount", heartCount);
+    heartCountElement.textContent = heartCount;
+  });
+});
