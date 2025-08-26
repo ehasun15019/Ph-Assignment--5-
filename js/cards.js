@@ -1,4 +1,4 @@
-const card = [
+export const card = [
   {
     id: 1,
     image: "./assets/emergency.png",
