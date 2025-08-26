@@ -12,6 +12,15 @@
     />
     <!-- tailwind css cdn -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font-awesome-cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body class="bg-[#f5fff6]">
     <!-- Navbar start -->
@@ -76,28 +85,37 @@
     <!-- Hero section end -->
 
     <!-- Main section start -->
-    <div class="main_sectoion px-6 py-3 h-[100vh] flex justify-between">
+    <div class="main_sectoion px-6 py-3 flex justify-between">
       <div>
-        {card.map()}
-        <!-- <div class="card bg-base-100 w-96 shadow-sm">
-          <div class="card-body">
-            <h2 class="card-title">Card title!</h2>
-            <p>
-              A card component has a figure, a body part, and inside body there
-              are title and actions parts
-            </p>
-            <div class="card-actions justify-end">
-              <button class="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div> -->
+        <div
+          id="cards-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          <!-- Cards will be injected here by JS -->
+        </div>
       </div>
 
-      <div class="w-[200px] bg-white shadow-sm">this is</div>
+      <div class="w-[280px] bg-white shadow-sm rounded px-3">
+        <div class="header flex justify-between pt-3">
+          <div class="left-side flex gap-2 items-center">
+            <i class="fa-regular fa-clock"></i>
+            <p>Call History</p>
+          </div>
+
+          <div class="right-side">
+            <button
+              class="bg-green-600 text-white px-6 py-2 rounded-full cursor-pointer"
+              id="clear"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Main section end -->
 
     <!-- own js link -->
-    <script src="./js/cards.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>
