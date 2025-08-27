@@ -24,35 +24,38 @@
   </head>
   <body class="bg-[#f5fff6]">
     <!-- Navbar start -->
-    <div class="navbar bg-base-100 shadow-sm px-6">
+    <div class="navbar bg-base-100 shadow-sm px-6 py-3">
       <div class="flex-1 flex gap-1 items-center">
         <a class="btn btn-ghost text-xl">
           <img src="./assets/logo.png" alt="logo" class="w-13" />
         </a>
 
-        <h3 class="text-[#006747] font-bold text-2xl">
+        <h3 class="text-[#006747] font-bold md:text-2xl sm:text-[0.9rem]">
           Emergency <br />
           Service
         </h3>
       </div>
 
       <div class="flex-none flex gap-3">
+        <!-- Heart -->
         <div
-          class="heart-section flex items-center gap-3 bg-[#ecfff0] px-6 py-3 rounded-full"
+          class="heart-section flex items-center gap-3 bg-[#ecfff0] px-3 md:px-6 py-2 md:py-3 rounded-full"
         >
           <p class="font-bold" id="heart_count">0</p>
           <img src="./assets/heart.png" alt="heart" class="w-5 h-5" />
         </div>
 
+        <!-- Coin -->
         <div
-          class="coin-section flex items-center gap-3 bg-[#ecfff0] px-6 py-3 rounded-full"
+          class="coin-section flex items-center gap-3 bg-[#ecfff0] px-3 md:px-6 py-2 md:py-3 rounded-full"
         >
           <p class="font-bold" id="coin">100</p>
-          <img src="./assets/coin.png" alt="heart" class="w-5 h-5" />
+          <img src="./assets/coin.png" alt="coin" class="w-5 h-5" />
         </div>
 
+        <!-- Copy -->
         <div
-          class="copy_btn px-8 py-3 rounded-full bg-[#00A63E] text-white flex items-center gap-2"
+          class="copy_btn px-4 md:px-8 py-2 md:py-3 rounded-full bg-[#00A63E] text-white flex items-center gap-2 copy-section"
         >
           <p class="font-bold" id="copy_count">0</p>
           <p class="font-bold">Copy</p>
