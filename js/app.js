@@ -107,3 +107,31 @@ clear.addEventListener("click", () => {
   callHistoryBox.innerHTML = "";
 });
 /* call history working end */
+
+/* copy functionalities start */
+const copy_btn = document.querySelectorAll(".copy_btn");
+const copy_count = document.getElementById("copy_count");
+
+let copyCount = 0;
+
+copy_btn.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const card = btn.closest(".card");
+    const lineNumber = card.querySelector(".line_number").innerText.trim();
+
+    // copy count
+    navigator.clipboard.writeText(lineNumber).then(() => {
+      copyCount++;
+      copy_count.textContent = copyCount;
+    });
+
+    alert(`Number Copied ${lineNumber}`);
+
+    // when someone click the copy_btn then show the copied in the button
+    btn.innerHTML = "copied!";
+    setTimeout(() => {
+      btn.innerHTML = "copy";
+    }, 1000);
+  });
+});
+/* copy functionalities end */
