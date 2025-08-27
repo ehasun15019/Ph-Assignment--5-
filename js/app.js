@@ -44,3 +44,66 @@ card_heart.forEach((heart, index) => {
   });
 });
 /* like system end */
+
+/* call history working start */
+const coin = document.getElementById("coin");
+const call_btn = document.querySelectorAll(".call_btn");
+const callHistoryBox = document.getElementById("history_list");
+
+// function for call_history
+function addCallHistory(serviceName, serviceNumber) {
+  const entry = document.createElement("div");
+  entry.classList.add("history-entry", "flex", "p-2", "bg-gray-100", "mt-2");
+
+  const now = new Date();
+  const time = now.toLocaleTimeString("en-US", {
+    timeZone: "Asia/Dhaka",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+
+  entry.innerHTML = `
+  <div class="flex justify-between items-center px-2 rounded-full w-full">
+   <div class="flex flex-col">
+     <p class="font-semibold text-[0.8rem]">${serviceName}</p>
+     <p>${serviceNumber}</p>
+   </div>
+
+   <div>
+     <p class="text-[0.9rem]">${time}</p>
+   </div>
+  </div>
+  `;
+
+  callHistoryBox.appendChild(entry);
+}
+
+// addEventListener for every call_btn
+call_btn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const card = btn.closest(".card");
+    const serviceName = card.querySelector("h2").innerText;
+    const serviceNumber = card.querySelector(".card-actions p").innerText;
+
+    let currentCoins = parseInt(coin.innerText);
+
+    if (currentCoins < 20) {
+      alert("Not enough coins to make a call!");
+      return;
+    }
+
+    currentCoins = currentCoins - 20;
+    coin.innerText = currentCoins;
+
+    alert(`Calling ${serviceName} at ${serviceNumber}`);
+    addCallHistory(serviceName, serviceNumber);
+  });
+});
+
+// clear btn Functionality
+const clear = document.getElementById("clear");
+clear.addEventListener("click", () => {
+  callHistoryBox.innerHTML = "";
+});
+/* call history working end */
