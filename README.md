@@ -102,27 +102,19 @@ Ans:
   html:
    <table>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Subject</th>
-      <th>Marks</th>
+      <th>preventDefault()</th>
+      <th>stopPropagation()</th>
     </tr>
     <tr>
-      <td>1</td>
-      <td>Orko</td>
-      <td>Math</td>
-      <td>95</td>
+      <td>1. Prevents the browser’s default action for an event.</td>
+      <td>Ehasun</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Rafi</td>
-      <td>English</td>
-      <td>88</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Nabila</td>
-      <td>Science</td>
-      <td>92</td>
     </tr>
   </table>
