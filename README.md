@@ -93,3 +93,36 @@ Event Delegation is UseFull because of
     1. Performance Efficient
     2. It takes less than memory and the DOM is lighter.
     3. easy to handle Dynamic Elements
+
+
+5. What is the difference between preventDefault() and stopPropagation() methods?
+
+Ans: 
+  
+  html:
+   <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Subject</th>
+      <th>Marks</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Orko</td>
+      <td>Math</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Rafi</td>
+      <td>English</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Nabila</td>
+      <td>Science</td>
+      <td>92</td>
+    </tr>
+  </table>
