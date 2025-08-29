@@ -59,3 +59,11 @@ Example:
         const header = document.getElementById("header");
         header.insertAdjacentElement("afterend", newDiv);
 
+
+3. What is Event Bubbling and how does it work?
+
+Ans: Event Bubbling is a process of event in JavaScript, where when an event occurs on a child (inner element), it first acts on that element, then gradually moves up to its parent  -> grandparent -> the entire document.
+
+  firstly work in the child element
+        secondly work on the parent element
+            in third work on the grandParent element.
