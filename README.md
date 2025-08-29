@@ -67,3 +67,29 @@ Ans: Event Bubbling is a process of event in JavaScript, where when an event occ
   firstly work in the child element
         secondly work on the parent element
             in third work on the grandParent element.
+
+
+4. What is Event Delegation in JavaScript? Why is it useful?
+
+Example: 
+   
+   html: 
+
+        <ul id="list">
+            <li class="item">Item 1</li>
+            <li class="item">Item 2</li>
+            <li class="item">Item 3</li>
+            <li class="item">Item 4</li>
+        </ul>
+
+    js: 
+       document.getElementById("list").addEventListener("click", (e) => {
+            if (e.target.classList.contains("item")) {
+                console.log("Item clicked:", e.target.innerText);
+            }
+        });
+
+Event Delegation is UseFull because of
+    1. Performance Efficient
+    2. It takes less than memory and the DOM is lighter.
+    3. easy to handle Dynamic Elements
