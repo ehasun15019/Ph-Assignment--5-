@@ -43,3 +43,19 @@ Example:
         <div class="card"></div>
     js:
         const cardElements = document.querySelectorAll(".card");
+
+
+2. How do you create and insert a new element into the DOM?
+
+Example: 
+
+    html:  
+        <h1 id="heading">This is heading</h1>
+    js: 
+        const newDiv = document.createElement("div");
+        newDiv.textContent = "I'm new here!";
+        newDiv.className = "highlight";
+
+        const header = document.getElementById("header");
+        header.insertAdjacentElement("afterend", newDiv);
+
