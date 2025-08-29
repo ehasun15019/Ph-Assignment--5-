@@ -107,14 +107,32 @@ Ans:
     </tr>
     <tr>
       <td>1. Prevents the browser’s default action for an event.</td>
-      <td>Ehasun</td>
+      <td>1. EhasunStops the event from bubbling up to parent elements.</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>Rafi</td>
+      <td>2. Does not stop bubbling or propagation.</td>
+      <td>2. Does not prevent default behavior.</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>Nabila</td>
+      <td>
+        <p>Example: </p> 
+        <br/>
+        <p>
+          form.addEventListener("submit", (e) => {
+            e.preventDefault(); // stop page reload
+            console.log("Form submission prevented");
+          });
+        </p>
+      </td>
+      <td>
+        <p>Example: </p> 
+        <br/>
+        <p>
+         document.getElementById("child").addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            console.log("Child clicked only");
+         });
+        </p>
+      </td>
     </tr>
   </table>
